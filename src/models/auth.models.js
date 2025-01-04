@@ -11,6 +11,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "password is required"],
   },
+  // profileImage: { 
+  //   type: String,
+  //   required: [true, "profileImage is required"], 
+  // },
 });
 
 userSchema.pre("save", async function (next) {
