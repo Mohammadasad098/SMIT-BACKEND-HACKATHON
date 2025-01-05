@@ -99,3 +99,6 @@ const editData = async (req, res) => {
 };
 
 export { addData , getAllData , getDataWithId , deleteData, editData };
+
+
+
