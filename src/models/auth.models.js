@@ -15,17 +15,33 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "password is required"],
   },
+  role: {
+    type: String,
+    enum: ["admin", "customer"],
+    default: "customer"
+  },
   enrolledProducts: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Data",
-        },
-      ],
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Data",
+    },
+  ],
+  enrolledOrders: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Order",
+    },
+
+  ],
   // profileImage: { 
   //   type: String,
   //   required: [true, "profileImage is required"], 
   // },
-});
+},
+  {
+    timestamps: true,
+  }
+);
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();

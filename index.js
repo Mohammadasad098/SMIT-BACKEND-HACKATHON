@@ -8,6 +8,7 @@ import jwt from "jsonwebtoken";
 import connectDB from "./src/db/index.js";
 import authRoutes from "./src/routes/auth.routes.js";
 import dataRoutes from "./src/routes/data.routes.js";
+import orderRoutes from "./src/routes/order.routes.js";
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 // routes
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", dataRoutes);
+app.use("/api/v1", orderRoutes);
 
 connectDB()
   .then(() => {
