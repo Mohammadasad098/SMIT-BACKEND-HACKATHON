@@ -15,6 +15,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "password is required"],
   },
+  enrolledProducts: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Data",
+        },
+      ],
   // profileImage: { 
   //   type: String,
   //   required: [true, "profileImage is required"], 

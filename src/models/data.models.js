@@ -20,6 +20,10 @@ const dataSchema = new Schema(
       type: String,
       required: true,
     },
+    enrolledUsers: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Users'
+  }
   },
   {
     timestamps: true,
