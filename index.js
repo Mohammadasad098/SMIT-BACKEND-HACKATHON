@@ -12,6 +12,8 @@ import orderRoutes from "./src/routes/order.routes.js";
 
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
@@ -27,8 +29,8 @@ app.use("/api/v1", orderRoutes);
 
 connectDB()
   .then(() => {
-    app.listen(process.env.PORT, () => {
-      console.log(`⚙️  Server is running at port : ${process.env.PORT}`);
+    app.listen(PORT, () => {
+      console.log(`⚙️  Server is running at port : ${PORT}`);
     });
   })
   .catch((err) => {
